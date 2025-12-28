@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  link-service:
+    image: link-service-image
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=8.222.170.22
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_PASSWORD=postgres
+
+  analytics-service:
+    image: analytics-service-image
+    ports:
+      - "4000:4000"
+    environment:
+      - DB_HOST=8.222.170.22
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASS=postgres
+
+  frontend:
+    image: frontend-image
+    ports:
+      - "80:80"

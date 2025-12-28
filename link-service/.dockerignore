@@ -1,0 +1,16 @@
+# Ignore python cache
+_pycache_/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local environment/dependencies
+venv/
+.env
+.venv
+env/
+
+# Ignore git and logs
+.git
+.gitignore
+*.log
