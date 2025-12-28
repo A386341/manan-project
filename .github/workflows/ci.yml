@@ -1,6 +1,3 @@
-# Triggering the pipeline - Version 1.0
-name: Build and Push to Docker Hub
-...
 name: Build and Push to Docker Hub
 on:
   push:
@@ -20,12 +17,12 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.am12344 }}
+          password: ${{ secrets.dckr_pat_1HXFsivBUX6AlMiUXE5HvUyZCDo }}
 
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: ./${{ matrix.service }}
           push: true
-          tags: your-docker-username/${{ matrix.service }}:latest
+          tags: am12344/${{ matrix.service }}:latest
