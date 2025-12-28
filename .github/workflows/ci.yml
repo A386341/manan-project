@@ -1,17 +1,15 @@
 name: Build and Push to Docker Hub
-
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  build-and-push:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # This will run 3 parallel jobs, one for each service
         service: [frontend, link-service, analytics-service]
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,10 +20,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push ${{ matrix.service }}
+      - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: ./${{ matrix.service }}
           push: true
-          # Replace 'yourusername' with your actual Docker Hub username
-          tags: yourusername/${{ matrix.service }}:latest
+          tags: your-docker-username/${{ matrix.service }}:latest
