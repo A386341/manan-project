@@ -1,3 +1,6 @@
+# Triggering the pipeline - Version 1.0
+name: Build and Push to Docker Hub
+...
 name: Build and Push to Docker Hub
 on:
   push:
