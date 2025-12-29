@@ -1,4 +1,4 @@
 import time
-print("Link Service is running...")
 while True:
-    time.sleep(10)
+    print("Link Service heartbeat...")
+    time.sleep(60)
