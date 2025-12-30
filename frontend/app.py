@@ -1,9 +1,8 @@
 from flask import Flask
-app = Flask(_name_)
-
+import os
+app = Flask(__name__)
 @app.route('/')
 def hello():
-    return "<h1>Frontend is Running on EC2!</h1>"
-
-if _name_ == "_main_":
+    return f"<h1>Service {os.getenv('SERVICE_NAME')} is LIVE!</h1>"
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
