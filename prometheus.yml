@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'flask-apps'
+    static_configs:
+      - targets: ['frontend:80', 'link-service:80', 'analytics-service:80']
