@@ -12,18 +12,17 @@ services:
   link-service:
     image: am12344/link-service:latest
     ports:
-      - "3000:3000"  # Crucial: Opens port for Prometheus to scrape
+      - "3000:3000"  # Keep this for your metrics
     environment:
       - SERVICE_NAME=link-service
 
   analytics-service:
     image: am12344/analytics-service:latest
     ports:
-      - "4000:4000"  # Crucial: Opens port for Prometheus to scrape
+      - "4000:4000"
     environment:
       - SERVICE_NAME=analytics-service
 
-  # --- MONITORING STACK ---
   prometheus:
     image: prom/prometheus:latest
     ports:
@@ -37,8 +36,8 @@ services:
   grafana:
     image: grafana/grafana:latest
     ports:
-      - "3000:3000"
+      - "3001:3000"  # CHANGE THIS: Access Grafana via port 3001
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin # Default login for your evaluator
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     depends_on:
       - prometheus
