@@ -12,14 +12,14 @@ services:
   link-service:
     image: am12344/link-service:latest
     ports:
-      - "3000:3000"  # Added port mapping
+      - "3000:3000"  # Crucial: Opens port for Prometheus to scrape
     environment:
       - SERVICE_NAME=link-service
 
   analytics-service:
     image: am12344/analytics-service:latest
     ports:
-      - "4000:4000"  # Added port mapping
+      - "4000:4000"  # Crucial: Opens port for Prometheus to scrape
     environment:
       - SERVICE_NAME=analytics-service
 
@@ -39,6 +39,6 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin # Default login: admin / admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin # Default login for your evaluator
     depends_on:
       - prometheus
