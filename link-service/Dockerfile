@@ -1,5 +1,17 @@
+# Use a lightweight Python image
 FROM python:3.9-slim
-RUN pip install flask
+
+# Set the directory where the app will live
 WORKDIR /app
-COPY app.py .
+
+# 1. Copy the requirements file first (Best Practice for caching)
+COPY requirements.txt .
+
+# 2. Install all dependencies from the file
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 3. Copy the rest of your application code
+COPY . .
+
+# Start the application
 CMD ["python", "app.py"]
