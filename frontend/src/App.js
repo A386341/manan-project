@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const LINK_SERVICE_URL = process.env.REACT_APP_LINK_SERVICE_URL || 'http://localhost:3000';
-const ANALYTICS_SERVICE_URL = process.env.REACT_APP_ANALYTICS_SERVICE_URL || 'http://localhost:4000';
+const LINK_SERVICE_URL = 'http://100.48.43.223:3000';
+const ANALYTICS_SERVICE_URL = 'http://100.48.43.223:4000';
 
 function App() {
   const [url, setUrl] = useState('');
