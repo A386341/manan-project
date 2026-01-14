@@ -1,3 +1,4 @@
 flask
 requests
 prometheus-flask-exporter
+flask-cors
